@@ -12,4 +12,10 @@ export default defineConfig({
     // nitro/vite builds from this
     server: { entry: "server" },
   },
+  // Outside the Lovable sandbox (e.g. building on Vercel), nitro is skipped unless
+  // explicitly enabled here. The Vercel preset emits a ready-to-deploy .vercel/output
+  // (Build Output API v3), so no custom vercel.json builds/routes are needed.
+  nitro: {
+    preset: "vercel",
+  },
 });
